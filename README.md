@@ -33,28 +33,68 @@ git clone https://github.com/yourusername/test_unittest.git
 cd test_unittest
 ```
 
-### Set Up Virtual Environment
+### Quick Setup (Recommended)
 
-#### Using venv (recommended)
+#### Windows PowerShell (Recommended)
+
+**Execution Policy Options:**
+
+If you encounter execution policy restrictions, you have several options:
+
+1. **Use bypass batch files (Easiest):**
+   ```cmd
+   # No configuration needed - just double-click or run:
+   setup_bypass.bat
+   ```
+
+2. **Set execution policy for current user:**
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+   .\setup.ps1
+   ```
+
+3. **Run with bypass flag:**
+   ```powershell
+   powershell.exe -ExecutionPolicy Bypass -File .\setup.ps1
+   ```
+
+4. **Direct PowerShell execution:**
+   ```powershell
+   # If policies allow
+   .\setup.ps1
+   ```
+
+#### Windows Command Prompt
+
+```cmd
+# Run the automated setup script
+setup.bat
+```
+
+#### Manual Setup
+
+##### Using venv (recommended)
 
 ```bash
-# Windows
+# Windows PowerShell/CMD
 python -m venv venv
-venv\Scripts\activate
+.\venv\Scripts\Activate.ps1    # PowerShell
+# or
+venv\Scripts\activate.bat      # CMD
 
 # macOS/Linux
 python -m venv venv
 source venv/bin/activate
 ```
 
-#### Using conda
+##### Using conda
 
 ```bash
 conda create -n resnet50-classifier python=3.10
 conda activate resnet50-classifier
 ```
 
-### Install Dependencies
+##### Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -64,7 +104,19 @@ pip install -r requirements.txt
 
 ### Running the Application
 
-```bash
+#### Quick Start Options
+
+```powershell
+# Option 1: Bypass batch file (No policy config needed)
+run_app_bypass.bat
+
+# Option 2: Direct PowerShell (if policies allow)
+.\run_app.ps1
+
+# Option 3: With bypass flag
+powershell.exe -ExecutionPolicy Bypass -File .\run_app.ps1
+
+# Option 4: Manual Python
 python main.py
 ```
 
@@ -102,17 +154,37 @@ test_unittest/
 │   └── workflows/
 │       └── ci.yml         # GitHub Actions workflow
 ├── main.py               # Application entry point
-├── requirements.txt      # Python dependencies
+├── demo.py               # Demo script
+├── run_tests.py          # Python test runner
 ├── setup.py             # Package setup
+├── requirements.txt      # Python dependencies
 ├── pytest.ini          # Pytest configuration
+├── Makefile            # Unix/macOS development commands
+├── setup.ps1           # PowerShell setup script
+├── run_tests.ps1       # PowerShell test runner
+├── run_app.ps1         # PowerShell app runner
+├── setup.bat           # Windows batch setup script
 └── README.md           # This file
 ```
 
 ### Running Tests
 
-#### All Tests
+#### Quick Test Run Options
 
-```bash
+```powershell
+# Option 1: Bypass batch file (No policy config needed)
+run_tests_bypass.bat
+
+# Option 2: Direct PowerShell (if policies allow)
+.\run_tests.ps1
+
+# Option 3: With bypass flag
+powershell.exe -ExecutionPolicy Bypass -File .\run_tests.ps1
+
+# Option 4: Python script (Cross-platform)
+python run_tests.py
+
+# Option 5: Direct pytest
 pytest
 ```
 
